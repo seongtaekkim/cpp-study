@@ -60,7 +60,7 @@ int	main(void)
 	cout << numeric_limits<long double>::max() << endl;
 	cout << numeric_limits<long double>::lowest() << endl;
 
-	float f(3.14); // 3.14 = 31.4 * 0.1
+	float f2(3.14); // 3.14 = 31.4 * 0.1
 	cout << 3.14 << endl;
 	cout << 31.4e-1 << endl;
 	cout << 31.4e-2 << endl;
