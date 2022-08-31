@@ -3,7 +3,7 @@
 using namespace std;
 
 
-
+// 함수가 아닌것처럼 컴파일된다.
 inline  int min(int x, int y)
 {
     return (x > y ? y : x);
