@@ -11,16 +11,19 @@ public:
     Calc& add(int value)
     {
         m_value += value;
+        cout << this << endl;
         return (*this);
     }
     Calc& sub(int value) 
     {
         m_value -= value;
+         cout << this << endl;
          return (*this);
     }
     Calc& mul(int value)
     {
         m_value *= value;
+         cout << this << endl;
          return (*this);
     }
     void print()
@@ -35,12 +38,12 @@ int main(int argc, char *argv[])
     // c.add(10);
     // c.sub(5);
     // c.mul(2);
-    Calc &temp1 = c.add(10);
-    Calc &temp2 = temp1.sub(5);
-    Calc &temp3 = temp2.mul(2);
-    temp3.print();
+    //Calc &temp1 = c.add(10);
+    //Calc &temp2 = temp1.sub(5);
+    //Calc &temp3 = temp2.mul(2);
+    //temp3.print();
     c.add(10).sub(5).mul(2).print();
-    Calc(10).add(3);
-    c.print();
+    //Calc(10).add(3);
+    //c.print();
     return (0);
 }
