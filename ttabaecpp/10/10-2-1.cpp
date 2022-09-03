@@ -9,9 +9,9 @@ int main(void)
     
     Teacher t1("prof. hong");
     Teacher t2("prof. taek");
-    Student s1(Student("kim1", 0));
-    Student s2(Student("kim2", 1));
-    Student s3(Student("kim3", 2));
+    Student s1("kim1", 0);
+    Student s2("kim2", 1);
+    Student s3("kim3", 2);
 
     Lecture lec1("introduction to computer programming");
     lec1.assignTeacher(t1);
