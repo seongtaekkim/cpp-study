@@ -4,6 +4,7 @@ using namespace std;
 class Digit
 {
 private:
+    int m_temp;
     int m_digit;
 public:
     Digit(int digit = 0)
@@ -20,10 +21,11 @@ public:
     Digit operator ++ (int)
     {
         Digit temp(m_digit);
-        //cout << this << endl;
-        //cout << &(this->m_digit) << endl;
-        //++(*this);
-        ++(this->m_digit);
+        cout << this << endl;
+        cout << &(this->m_temp) << endl;
+        cout << &(this->m_digit) << endl;
+        ++(*this);
+        //++(this->m_digit);
         return (temp);
     }
 };
@@ -38,6 +40,8 @@ std::ostream & operator << (std::ostream &out, const Digit digit)
 int main()
 {
     cout << Digit(5) << endl;;
-    cout << Digit(10)++ << endl;
+    Digit d(10);
+    cout << d++ << endl;
+    cout << d << endl;
     cout << ++Digit(15) << endl;   
 }

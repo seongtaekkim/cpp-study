@@ -14,7 +14,7 @@ public:
         {
             assert(den != 0);
         }
-                Fraction(const Fraction &fraction)
+    Fraction(const Fraction &fraction)
         : m_numerator(fraction.m_numerator), m_denominator(fraction.m_denominator)
     {
         cout << "copy constructor called " << endl;

@@ -1,56 +1,50 @@
 #include <iostream>
-//#include <fstream>
-
 using namespace std;
 
-class Point
+class Cents
 {
 private:
-    double m_x, m_y, m_z;
+    int m_cents;
 public:
-    Point(double x = 0.0, double y = 0.0, double z = 0.0)
-        :m_x(x), m_y(y), m_z(z)
-        {}
-    double getX() {
-        return (m_x);
-    }
-    double getY() {
-        return (m_y);
-    }
-    double getZ() {
-        return (m_z);
-    }
-    /* void    print() {
-        cout << m_x << " " << m_y << " " << m_z << endl;
-    } */
-
-    // 멤버함수로 만들기 어렵다. (파라메터에 output stream이 있기 때문)
-    friend std::ostream& operator << (std::ostream &out, const Point &point)
+    Cents(int cents = 0)
+        :m_cents(cents) {}
+    int getCents() const
     {
-        out << "( " << point.m_x << " " << point.m_y << " " << point.m_z << " )";
-        return (out);
+        return (m_cents);
     }
-
-/*     friend std::istream& operator >> (std::istream &in, Point &point)
+    int &getCents()
     {
-        in >> point.m_x >> point.m_y >> point.m_z;
-        return (in);
-    } */
+        return (m_cents);
+    }
+// 맴버로만 해야하는 연산자 =, []. (), ->  
+Cents operator + (const Cents &c2)
+{
+    return  this->m_cents + c2.getCents();
+}
 };
 
-int main(int argc, char *argv[])
+/* Cents add(const Cents &c1, const Cents &c2)
 {
-    //ofstream of("out.txt");
+    return  c1.getCents() + c2.getCents();
+} */
 
-    Point p1(0.0, 0.1, 0.2), p2(3.4, 1.5, 2.0);
+/* Cents operator + (const Cents &c1, const Cents &c2)
+{
+    return  c1.getCents() + c2.getCents();
+} */
 
-    /* p1.print();
-    p2.print();
-    cout << endl; */
+int main(void)
+{
+    Cents c1(10);
+    Cents c2(20);
 
-    cout << p1 << " " << p2 << endl;
-    //of << p1 << " " << p2 << endl;
-    //of.close();
+    Cents sum;
+    //add(c1, c2);
 
-    return (0);
-}
+   // cout << add(c1, c2).getCents() << endl; 
+
+    cout << (c1 + c2).getCents() << endl;
+
+    // 연산오버로딩 안되는경우 ?:  :: sizeof . .*
+    // ^ 이거는 우선순위가 너무 낮아서 괄호를 쌓아한다 차라리 그냥 쓰자
+};

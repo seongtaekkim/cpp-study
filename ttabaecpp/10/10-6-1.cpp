@@ -1,5 +1,7 @@
 
 #include <iostream>
+using namespace std;
+
 class IntArray
 {
 private:
@@ -7,19 +9,47 @@ private:
     int *m_data = nullptr;
 public:
     IntArray() {}
-    IntArray(const int *list, size_t size)
-        :m_length(size)
+    IntArray(unsigned length)
+        :m_length(length)
     {
-        initialize();
-        setData(list);
+        m_data = new int[length];
     }
     ~IntArray() 
     {
  //       delete[] this->m_data;
     }
+    IntArray(const std::initializer_list<int> &list)
+        : IntArray(list.size())
+    {
+        int count = 0;
+        for (auto & e : list)
+        {
+            m_data[count] = e;
+            ++count;
+        }
+    }
+    IntArray & operator = (const IntArray & source)
+    {
+        if (this == &source)
+            return *this;
+
+        if (m_data != nullptr)
+            delete[] m_data;
+        m_length = source.m_length;
+        if (source.m_data != nullptr)
+        {
+            m_data = new int[m_length];
+            for (int i=0 ; i < m_length ; i++)
+                m_data[i] = source.m_data[i];
+        }
+        else
+            m_data = nullptr;
+        return (*this);
+    }
+
     void initialize()
     {
-        m_data = new int[this->m_length];
+        //m_data = new int[this->m_length];
     }
     void    setData(const int *list)
     {
@@ -110,25 +140,45 @@ public:
             index++;
         }
         delete[] this->m_data;
-        this->m_data = new int[this->m_length + 1];
+        this->m_data = new int[this->m_length - 1];
         index = 0;
         while (index < ix)
         {
             this->m_data[index] = tmpData[index];
             index++;
         }
-        this->m_data[index++] = value;
-        while (index < this->m_length + 1)
+        index++;
+        while (index < this->m_length)
         {
-            this->m_data[index] = tmpData[index - 1];
+            this->m_data[index - 1] = tmpData[index];
             index++;
         } 
-        this->m_length += 1;
+        this->m_length -= 1;
         delete[] tmpData;
     }
     void    push_back(const int &value)
     {
+        int *tmpData;
+        int index;
 
+        index = 0;
+        tmpData = new int[this->m_length];
+        while (index < this->m_length)
+        {
+            tmpData[index] = this->m_data[index];
+            index++;
+        }
+        delete[] this->m_data;
+        this->m_data = new int[this->m_length + 1];
+        index = 0;
+        while (index < this->m_length)
+        {
+            this->m_data[index] = tmpData[index];
+            index++;
+        }
+        this->m_data[index] = value;
+        this->m_length += 1;
+        delete[] tmpData;
     }
 };
 
@@ -146,22 +196,16 @@ std::ostream & operator << (std::ostream &out, IntArray arr)
 
 int main(void)
 {
-    const int arr[5] = {1,3,5,7,9};
-    IntArray my_arr {arr, 5};
+    IntArray my_arr = {1,3,5,7,9};
     std::cout << my_arr << std::endl;
     my_arr.resize(10);
     std::cout << my_arr << std::endl;
     my_arr.insertBefore(10, 1); // 1 10 3 5 7 9
     std::cout << my_arr << std::endl;
-    my_arr.reset();
-    std::cout << my_arr << std::endl;
-
-
+    //my_arr.reset();
     my_arr.remove(3); // 1 10 3 7 9
-    //my_arr.push_back(13); // 1 10  3 7 9 13
-
-   // std::vector<int> int_vec;
-    //std::array<int, 10> int_arr;
-
+    std::cout << my_arr << std::endl;
+    my_arr.push_back(13); // 1 10  3 7 9 13
+    std::cout << my_arr << std::endl;
     return (0);
 }
