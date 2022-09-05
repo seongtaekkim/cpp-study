@@ -22,8 +22,10 @@ int main(void)
     h->addPatient(p1);
     h->addPatient(p2);
     h->addPatient(p3);
-    h->addDoctorByPatient(p1, d1);
+   // h->addDoctorByPatient(p1, d1);
     h->addPatientByDoctor(d1, p1);
+    h->addPatientByDoctor(d1, p2);
+    h->addPatientByDoctor(d1, p3);
     
     // patients meet doctors
     //p1->addDoctor(d1);
@@ -35,7 +37,7 @@ int main(void)
    // p2->addDoctor(d1);
     //d1->addPatient(p2);
 
-    //p1->meetDoctors();
+   h->meetDoctors();
     //d1->meetPatients();
     // doctors meet patients
 
