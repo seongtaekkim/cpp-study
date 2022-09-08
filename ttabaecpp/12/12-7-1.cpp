@@ -41,9 +41,6 @@ public:
     }
 };
 
-
-
-
 int main(void)
 {
     //Animal a("hi");

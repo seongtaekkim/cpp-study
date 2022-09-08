@@ -50,7 +50,7 @@ int main(void)
     
     cout << "=======================" << endl;
     IErrorLog *a = new FileErrorLog;
-     cout << typeid(a).name() << " " << sizeof a << endl;
+    cout << typeid(a).name() << " " << sizeof a << endl;
     a->reportError("wg");
     doSomething(*a);
     return (0);

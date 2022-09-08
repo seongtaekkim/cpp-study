@@ -50,10 +50,55 @@ int main(void)
     
     for (int i =0; i< 2 ; i++)
         dogs[i].speak();
-
+    cout << "===============================" << endl << endl;
     Animal *animals[] = {&cats[0], &cats[1], &dogs[0], &dogs[1]};
     for (int i =0; i< 4 ; i++)
         animals[i]->speak();
+
+    cout << "===============================" << endl << endl;
+    Animal a = Cat("cat1");
+    a.speak();
+    cout << "===============================" << endl << endl;
+
+    Cat c("cat2");
+    Dog d("dog1");
+    a = c;
+    a.speak();
+    Animal &b = c;
+    b.speak();
+    b = d;  // 초기화 했던 변수는 변경한 인스턴스 c의 정보를 따르고
+            // virtual 함수는 처음 초기화된 인스턴스 d의 정보를 따른다.
+    b.speak();
+
+    cout << "===============================" << endl << endl;
+
+    cout << typeid(b).name() << endl;
+    cout << typeid(c).name() << endl;
+    cout << typeid(d).name() << endl;
+
+    cout << "===============================" << endl << endl;
+
+    Animal *aa = new Cat("cat1");
+    aa->speak();
+    Cat cc("cat2");
+    Animal *bb = &cc;
+    bb->speak();
+
+    cout << typeid(aa).name() << endl;
+    cout << typeid(bb).name() << endl;
+    cout << bb << endl;
+    cout << &cc << endl;
+
+
+/*     const std::string str = "HI THIS IS BRAIN";
+    const std::string *stringPTR = &str;
+    const std::string &stringREF = str;
+
+    std::cout << stringPTR << std::endl;
+    std::cout << &stringREF << std::endl;
+    std::cout << *stringPTR << std::endl;
+    std::cout << stringREF << std::endl; */
+
 
     return (0);
 }
