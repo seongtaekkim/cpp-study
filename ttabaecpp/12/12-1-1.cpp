@@ -69,6 +69,9 @@ int main(void)
     b = d;  // 초기화 했던 변수는 변경한 인스턴스 c의 정보를 따르고
             // virtual 함수는 처음 초기화된 인스턴스 d의 정보를 따른다.
     b.speak();
+    cout << &b << endl;
+    cout << &c << endl; // b, c주소가 같음
+    cout << &d << endl; 
 
     Dog *d2 = new Dog("dog2");
     b = *d2;
