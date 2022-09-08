@@ -70,6 +70,9 @@ int main(void)
             // virtual 함수는 처음 초기화된 인스턴스 d의 정보를 따른다.
     b.speak();
 
+    Dog *d2 = new Dog("dog2");
+    b = *d2;
+    b.speak();
     cout << "===============================" << endl << endl;
 
     cout << typeid(b).name() << endl;
@@ -81,7 +84,10 @@ int main(void)
     Animal *aa = new Cat("cat1");
     aa->speak();
     Cat cc("cat2");
+    Dog *dd = new Dog("dog");
     Animal *bb = &cc;
+    bb->speak();
+    bb = dd;
     bb->speak();
 
     cout << typeid(aa).name() << endl;
