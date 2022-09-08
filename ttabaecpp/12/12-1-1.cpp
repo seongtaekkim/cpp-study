@@ -81,7 +81,7 @@ int main(void)
 
     cout << "===============================" << endl << endl;
 
-    Animal *aa = new Cat("cat1");
+    Animal *aa = new Cat("cat1"); // === Cat c("cat1"); Animal &a = c;
     aa->speak();
     Cat cc("cat2");
     Dog *dd = new Dog("dog");
