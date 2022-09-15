@@ -15,10 +15,10 @@ int main(void)
 {
     try
     {
-        //std::string s;
+      //  std::string s;
         //s.resize(-1);
 
-        // throw std::runtime_error("bas thing happend");
+        //throw std::runtime_error("bas thing happend");
         throw CustomeException();
     }
     catch(const std::length_error& e)

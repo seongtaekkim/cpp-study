@@ -6,6 +6,7 @@ template <class T, int size>
 class StaticArray_Base
 {
 private:
+    int a;
     T m_array[size];
 public:
     T *getArray()
@@ -20,6 +21,9 @@ public:
     // 함수 내부에 this는 대체 어떻게 어딜 가르키나 ?>
     void print()
     {
+        cout << this << endl;
+        cout << this->m_array << endl;
+        cout << &this->a << endl;
         for (int c=0 ; c<size; c++)
             cout << (*this)[c] << ' ';
         cout << endl;

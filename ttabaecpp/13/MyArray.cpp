@@ -8,8 +8,10 @@ void    MyArray<T>::print()
     std::cout << std::endl;
 }
 
-// explicit instantiation
-// 특정타입으로 컴파일 해야 한다고 명시
+// 자료형이 아닌 템플릿 매개변수는 explicit instanciation 할 때, 모든 케이스 (값)에 대해
+// 작성해야 하므로,
+// explicit instanciation 할수 있는 방법이 없어 보인다.
+// => cpp에 구현을 하지 않고 헤더에 구현한다.
 
 template class MyArray<char>;
 template class MyArray<double>;

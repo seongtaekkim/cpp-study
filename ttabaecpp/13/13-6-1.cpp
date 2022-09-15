@@ -2,6 +2,7 @@
 #include <cstdlib>
 using namespace std;
 
+// 부분특수화 질문
 // https://www.inflearn.com/course/following-c-plus/unit/14796?category=questionDetail&tab=community&q=105164
 
 template <class T, int size>
@@ -47,8 +48,8 @@ int main(void)
     print(int4);
 
     StaticArray<char, 14> char14;
-    char14[0] = 'H';
-    char14[1] = 'e';
+    //char14[0] = 'H';
+    //char14[1] = 'e';
     strncpy(char14.getArray(), "Hello, World", 14);
     print(char14);
     return (0);

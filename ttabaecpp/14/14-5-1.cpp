@@ -41,6 +41,7 @@ catch(...)
 }
 
 
+// class 생성자에서는 try catch 시 throw; 없이도 호출자로 throw 함.
 int main(void)
 {
     try
