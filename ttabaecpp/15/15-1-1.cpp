@@ -57,6 +57,12 @@ int main(void)
  cout << res1.m_ptr << endl;
  cout << res2.m_ptr << endl;
 
+ /*
+    AutoPtr 한계점
+    - 함수 인자로 객체를 넘겨주고, 함수에서 move semantics 후 함수가 종료되어 리턴된 후
+    - 호출 area에서 객체를 사용할 수 없다. (함수 종료 시 autoptr에서 자원을 해제함.)
+ */
+
 
  // syntax vs. semantics
 
