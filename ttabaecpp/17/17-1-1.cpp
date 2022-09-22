@@ -12,6 +12,7 @@ int main(void)
         std::cout << strHello << std::endl;
     }
 
+    // basic string 구조 파악하기
     // basic_string<>, string, wstring
     // basic_string<string>. basic_string<wstring>
     {
@@ -19,11 +20,10 @@ int main(void)
         std::wstring wstring;
 
         wchar_t wc; // wide-character/unicode
-                    // ㅇㅕ러국가에서 사용할 프로그램을  만들경우 사용함.
+                    // 여러국가에서 사용할 프로그램을  만들경우 사용함.
     }
 
     // wstring example
-
     {
         using std::wcout;
         using std::endl;

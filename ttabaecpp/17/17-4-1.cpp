@@ -1,6 +1,5 @@
 #include <string>
 #include <iostream>
-#include <vector>
 
 int main(void)
 {
@@ -16,8 +15,8 @@ int main(void)
             매모리에 직접 접근은 속도는 빠르지만,
             exception정의가 안되어 있기 때문에 catch할 수 없어서 
             runtime error가 발생할 수 있다.
-        /*
-       //  my_str[100] = 'X'; // error ?
+        */
+        // my_str[100] = 'X'; // error ?
         
         /*
             string class 내부에 out of range에 대한 exception이 존재하기 때문에 
