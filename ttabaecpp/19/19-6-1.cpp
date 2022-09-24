@@ -80,7 +80,7 @@ int main()
     v0_dot_v1 = 1*4 + 2*5 + 3*6;
 */
     const long long n_data = 100'000'000;
-    const unsigned n_threads = 4;
+    const unsigned n_threads = 4;   
 
     // initialize vectors
     std::vector<int> v0, v1;
