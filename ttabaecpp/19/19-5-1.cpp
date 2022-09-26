@@ -52,6 +52,7 @@ int main(void)
         f1.join();
         f2.join();
         cout << "main function " << endl;
+        
     }
 
     return (0);

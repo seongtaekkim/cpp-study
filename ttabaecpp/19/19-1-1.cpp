@@ -21,7 +21,7 @@ public:
 
 int main(void)
 {
-    // lambda-introducer
+    // [] : lambda-introducer
     // lambda-parameter-declaration
     // lambda-return-type-clause
     // compound-statement
@@ -33,9 +33,11 @@ int main(void)
     
     {
         string name = "staack";
-        [&]() {cout << name << endl;} ();
-        //[&name]() {cout << name << endl;} ();
-        //[=]() {cout << name << endl;} (); // copy
+        [&]() {cout << name << endl; name = "aa";} ();
+        cout << name << endl;
+        //[&name]() {cout << name << endl;} (); // name의 reference를 가져옴
+        [=]() {cout << name << endl;} (); // name을 copy
+        cout << name << endl; 
     }
 
     vector<int> v;
@@ -56,6 +58,9 @@ int main(void)
     std::function<void()> func4 = std::bind(func3, 456);
     func4();
 
+
+    //https://en.cppreference.com/w/cpp/utility/functional/placeholders
+    //placeholders : 호출 함수의 인자로 받을 수 있도록 세팅.
     {
         Object instance;
         auto f = std::bind(&Object::hello, &instance, std::placeholders::_1);

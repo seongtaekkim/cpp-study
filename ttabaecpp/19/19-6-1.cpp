@@ -191,7 +191,8 @@ int main()
         cout << endl;
     }
 
-    /* cout << "std::transform_reduce" << endl;
+    // std::execution::par mac 지원안함
+    /*  cout << "std::transform_reduce" << endl;
     {
         const auto sta = chrono::steady_clock::now();
 
@@ -201,7 +202,7 @@ int main()
         cout << dur.count() << endl;
         cout << sum << endl;
         cout << endl;
-    } */
+    }  */
     // use divide and conquer strategy for std::thread
     // use promise
 
